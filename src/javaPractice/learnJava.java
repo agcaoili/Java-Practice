@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class learnJava {
 
 	public static void main(String[] args) {
-		switchPractice();
+		whileLoop();
 	}
 	public static void switchPractice() {
 
@@ -26,6 +26,28 @@ public class learnJava {
 		default:
 			System.out.println("Try again later");
 			break;
+		}
+	}
+	
+	public static void whileLoop() {
+		//initialize the guess boolean and password string
+		boolean correct = false;
+		String password = "ambidextrous";
+
+		//set loop to repeat while the 'correct' boolean is false
+		while(correct == false) {
+			System.out.println("What is the password?");
+			Scanner scanner = new Scanner(System.in);
+			String guess = scanner.nextLine();
+			//password correct case
+			if(password.equals(guess)) {
+				System.out.println("Password correct. Welcome.");
+				correct = !correct;
+			}
+			//password incorrect case
+			else {
+				System.out.println("Password incrorect. Try again.");
+			}
 		}
 	}
 }
