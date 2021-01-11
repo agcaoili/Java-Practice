@@ -1,11 +1,12 @@
 package javaPractice;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class learnJava {
 
 	public static void main(String[] args) {
-		whileLoop();
+		arrayInput();
 	}
 	public static void switchPractice() {
 
@@ -43,12 +44,25 @@ public class learnJava {
 			if(password.equals(guess)) {
 				System.out.println("Password correct. Welcome.");
 				correct = !correct;
+				scanner.close();
 			}
 			//password incorrect case
 			else {
 				System.out.println("Password incrorect. Try again.");
-			}
+			}	
 		}
+	}
+	
+	public static void arrayInput() {
+		//initialize array of length 10
+		int[] myArray = new int[10];
+		Scanner scanner = new Scanner(System.in);
+		
+		for(int i = 0; i < 10; i++) {
+			System.out.println("Enter element " + Integer.toString(i + 1) + ":");
+			myArray[i] = scanner.nextInt();
+		}
+		System.out.println(Arrays.toString(myArray));
 	}
 }
 
