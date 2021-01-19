@@ -19,6 +19,7 @@ public class NetPay {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("How many hours did you work this week?");
 		int weeklyHours = scanner.nextInt();
+		scanner.close();
 		
 		//Calculate gross pay
 		double grossPay = weeklyHours * PAY_PER_HOUR;
