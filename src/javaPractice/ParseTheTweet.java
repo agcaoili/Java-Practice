@@ -20,15 +20,18 @@ public class ParseTheTweet {
 		double latitude;
 		double longitude;
 		
-		//start and finish variables contain indices of where each substring starts and ends
+		//initialize start and finish variables to contain indices 
+		//of where the first substring starts and ends
 		int start = tweet.indexOf("#");
 		int finish = tweet.indexOf(";");
 		
 		//value is extracted using start and finish indices
 		type = tweet.substring(start + 5, finish).toUpperCase().trim();
-		//start and finish are redefined 
+		//start and finish indices are redefined to point to the next substring
 		start = finish + 2;
 		finish = tweet.indexOf(";", start);
+		
+		//process repeats for the other 4 tweet sections
 		
 		loc  = tweet.substring(start + 5, finish).trim();
 		start = finish + 2;
