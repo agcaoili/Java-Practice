@@ -3,7 +3,11 @@ package javaPractice;
 import java.util.Scanner;
 
 public class StringFun {
-
+	
+/*This class takes a string from a user input and manipulates it it based on various commands.
+The 4 basic commands include "print reverse", "replace all", "replace single", and "remove"
+The "quit" command is used to exit the program.*/
+	
 	public static void main(String[] args) {
 		//initialize scanner
 		Scanner input = new Scanner(System.in);
@@ -33,16 +37,18 @@ public class StringFun {
 			else if(cmd.equalsIgnoreCase("replace all")){
 				System.out.println("Enter the character to replace.");
 				String character = input.nextLine();
-				
 				//if the original string contains the character and if the character input is only 1 long
 				if(str.contains(character) && character.length()==1) {
 					newString = "";
 					System.out.println("Enter the new character.");
 					String newChar = input.nextLine();
 					for(int i=0; i < str.length(); i++) {
+						//if the character at index i does NOT equal the character to be replaced,
+						//add the character at index i to newString
 						if(!Character.toString(str.charAt(i)).equals(character)) {
 							newString = newString + Character.toString(str.charAt(i)); 
 						}
+						//else, add the new desired character to newString
 						else {
 							newString = newString + newChar;
 						}
@@ -50,6 +56,7 @@ public class StringFun {
 					str = newString;
 					System.out.println("Your new sentence is: " + str);
 				}
+				//print error messages if the requirements for valid input are not met
 				else {
 					if(character.length() != 1) {
 						System.out.println("Input was not a single character.");
@@ -68,24 +75,29 @@ public class StringFun {
 				//if the original string contains the character and if the character input is only 1 long
 				if(str.contains(character) && character.length()==1) {
 					newString = "";
-					int counter = 1;
+					int counter = 1; //counter variable will keep track of the instance of the character to be replaced
 					System.out.println("Enter the new character.");
 					String newChar = input.nextLine();
 					System.out.println("Which " + character + " would you like to replace?");
 					int instance = input.nextInt();
 					
 					for(int i=0; i < str.length(); i++) {
+						//if the character at index i does NOT equal the character to be replaced,
+						//add the character at index i to newString
 						if(!Character.toString(str.charAt(i)).equals(character)) {
 							newString = newString + Character.toString(str.charAt(i)); 
 						}
 						else {
+							//if counter does equal instance and characters are the same, add newChar to newString
 							if(counter==instance) {
 								newString = newString + newChar;
 							}
+							//if counter does not equal instance and characters are the same,
+							//append the character at index i to the string
 							else {
 								newString = newString + Character.toString(str.charAt(i)); 
 							}
-								counter += 1;
+								counter += 1; //increment the counter by 1
 						}
 					}
 					str = newString;
@@ -110,6 +122,7 @@ public class StringFun {
 				if(str.contains(character) && character.length()==1) {
 					newString = "";
 					for(int i=0; i < str.length(); i++) {
+						//add the character at index i to newString if the charAt(i) does not equal the character to be removed
 						if(!Character.toString(str.charAt(i)).equals(character)) {
 							newString = newString + Character.toString(str.charAt(i)); 
 						}
